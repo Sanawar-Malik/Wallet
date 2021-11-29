@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+    Welcome to Jim Shaped Coding Market
+{% endblock %}
+{% block content %}
+<!-- component -->
+<div class="flex items-center justify-center h-screen bg-gray-200">
+    <div class="container">
+      <div class="bg-white rounded-lg shadow-lg p-5 md:p-20 mx-2">
+        <div class="text-center">
+          <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+            Wallet<span class="text-indigo-600">Account</span>
+          </h2>
+          <h3 class='text-xl md:text-3xl mt-10'>Coming Soon</h3>
+          <p class="text-md md:text-lg mt-10">Take the money in your wallet and invest it in your mind. And in return, your mind will fill up your wallet!</p>
+        </div>
+        <div class="flex flex-wrap mt-10 justify-center">
+          <div class="m-3">
+            <a href="{{ url_for('wallet_page') }}" title="Quicktoolz On Facebook"
+               class=" bg-green-500 tracking-wide text-white font-bold rounded-full hover:bg-green-700 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+              <span class="mx-auto">Get Started</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- <div class=" position-relative overflow-hidden p-md-5 m-md-3 text-center bg-gray-900" style="color:white">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal">Jim Shaped Coding Market</h1>
+            <p class="lead font-weight-normal">Start purchasing products by clicking the link below</p>
+            <a class="btn btn-primary" href="{{ url_for('wallet_page') }}">Get Started</a>
+        </div>
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div> -->
+{% endblock %}

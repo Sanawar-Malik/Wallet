@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class=" mx-auto md:py-8 px-6 bg-gray-900">
+  <div class="max-w-sm mx-auto px-6">
+        <div class="relative flex flex-wrap">
+            <div class="w-full relative">
+                <div class="md:mt-6">
+                    <div class="text-center font-bold text-white">
+                        <h1 class="text-xl">Update Profile</h1>
+                    </div>
+                    
+                    <form class="mt-8" action="/user/{{current_user.id}}" method="post" x-data="{password: '',password_confirm: ''}">
+                        <div class="mx-auto max-w-lg ">
+                            <div class="py-1">
+                                <input placeholder="Username" type="text" value="{{current_user.username}}" name="username" class="text-md block px-3 py-2 rounded-lg w-full bg-white border-2 border-green-700 placeholder-gray-400 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-green-600 focus:outline-none">
+                            </div>
+                            
+                            <div class="py-1">
+                               
+                                <input placeholder="email" type="text" value="{{current_user.email}}" name="email" class="text-md block px-3 py-2 rounded-lg w-full bg-white border-2 border-green-700 placeholder-gray-400 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-green-600 focus:outline-none">
+                            </div>
+                           
+             
+                           
+                            <button class="mt-3 text-lg font-semibold bg-green-500 w-full text-white rounded-lg px-6 py-2 block     shadow-xl hover:text-white hover:bg-green-600">
+                            Submit
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}  

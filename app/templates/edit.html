@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+
+ 
+<div class="h-full">
+  <div class="block md:flex h-100 bg-gray-50">
+    <div class="w-full md:w-1/3 p-2">
+      <div class="rounded  shadow p-6 bg-white">
+        <div class=" text-center">
+          <h1 class="text-2xl font-semibold block">Add Entry</h1>
+        </div>
+    
+
+        <form action="/edit/{{entry.id}}" method="post">
+        <div class="pb-6">
+          <label for="name" class="font-semibold text-gray-700 block pb-1">Name</label>
+          <div class="flex">
+            <input id="name" name="name" class="border bg-gray-100  rounded-full px-4 py-2 w-full" type="text" value="{{entry.name}}" />
+          </div>
+        </div>
+        <div class="pb-4">
+          <label for="about" class="font-semibold  text-gray-700 block pb-1">Amount</label>
+          <input id="amount" name="amount" class="border bg-gray-100  rounded-full px-4 py-2 w-full" type="text" value="{{entry.amount}}" />
+        </div>
+        <div class="flex flex-col">
+          <div class="flex justify-center">
+          <button type="submit" class="bg-green-500 rounded-full font-bold text-white px-4 py-2 transition duration-300 ease-in-out hover:bg-green-600 mr-6">
+              Edit
+          </button>
+          </div>
+        </div>
+  
+      </form>
+      </div>
+    </div>
+  <div class="w-full md:w-2/3 p-4 sm:p-6 lg:p-8 bg-white shadow-md">
+    <div class="mx-5">
+      <div class="grid gap-6 md:grid-cols-2">
+        
+                 <div class="min-w-0 p-4 bg-gray-600 rounded-lg shadow-xs">
+                   <div class="pb-6">
+                    <label for="name" class="font-semibold text-white block pb-1">Add Amount</label>
+                    <div class="flex">
+                      <input id="username" class="border bg-gray-100  rounded-full px-4 py-2 w-full" type="text" value="" />
+                    <span class="pt-2 pl-1"> <a href="" class="bg-green-500 rounded-full font-bold text-white px-4 py-2 transition duration-300 ease-in-out hover:bg-green-600 mr-6">
+                      Submit
+                  </a></span>
+                    </div>
+                  </div>
+                 </div>
+                 <div class="min-w-0 p-4 text-white bg-gray-300 rounded-lg shadow-5xl">
+              
+                   <h4 class="font-semibold text-black">
+                     Total Amount:
+                   </h4>
+                   <h4 class="mb-4 font-semibold text-5xl  ">
+                    {{current_user.amount}}
+                  </h4>
+
+                 </div>
+               </div>
+   </div>
+   <div class="col-xs-8 col-xs-offset-2 well mt-5">
+    <table class="table table-scroll table-striped">
+        <thead>
+            <tr class="bg-gray-600 text-white">
+                <th>#No</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        {% if current_user.is_authenticated %}
+        <tbody>
+         
+            
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+   
+</div>
+
+  
+</div>
+</div>
+{% endblock %}

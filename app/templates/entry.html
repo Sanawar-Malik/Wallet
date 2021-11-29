@@ -1,0 +1,56 @@
+{% for wallet in wallets %}
+
+<div class="modal fade  bg-gray-900" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header font-bold text-2xlg text-danger">
+          <h1 class="modal-title" id="exampleModalLabel">Add Entries</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="{{url_for('create_entry',wallet_id= wallet.id)}}" id="search_form" method="POST">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label font-bold">Name:</label>
+              <input type="text" class="form-control border-2" name="name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label font-bold">Amount:</label>
+              <input type="text" class="form-control border-2" name="amount">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label font-bold">Choose:</label>
+              <select class="form-select border-2" aria-label="Default select example" name="selector">
+                <option selected>Select</option>
+                {% if current_user.is_authenticated %}
+                {% for wallet in wallets %}
+
+                <option value="{{wallet.name}}">{{wallet.name}}</option>
+             
+                {% endfor %}
+                
+                {% endif %}
+              </select>
+            </div>
+            <button type="submit" onclick="form_submit()" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+  <script type="text/javascript">
+    function form_submit() {
+      document.getElementById("search_form").submit();
+     }    
+    </script>
+  
+  <script>
+    $(document).ready(function(){
+    $(document).on('click','.addEvent',function(){
+        $('.modal-body').text($(this).attr(''));
+        $('#exampleModal').modal('show');
+    });
+    });
+  
+  </script>
