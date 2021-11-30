@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 marshmallow-sqlalchemy = "*"
+gunicorn = "*"
 
 [dev-packages]
 
