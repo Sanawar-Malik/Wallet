@@ -5,13 +5,10 @@ from wtforms import form
 from app import db
 from app.models import User, Wallet, Entry
 from app.forms import RegisterForm, LoginForm
-
-
 @app.route('/')
 @app.route('/home')
 def home_page():
     return render_template('home.html')
-
 @app.route('/index')
 @login_required
 def wallet_page():
@@ -25,8 +22,6 @@ def wallet_page():
     else:
         pass    
     return render_template('wallet.html', wallets=wallets, our_users=our_users, information=entries)
-
-
 @app.route('/register', methods=['GET', 'POST'])
 def register_page():
     form = RegisterForm()
@@ -41,7 +36,6 @@ def register_page():
         for err_msg in form.errors.values():
             flash(f'There was an error with creating a user: {err_msg}', category='danger')
     return render_template('register.html', form=form)
-
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
     form = LoginForm()
@@ -56,9 +50,6 @@ def login_page():
         else:
             flash('Username and password are not match! Please try again', category='danger')
     return render_template('login.html', form=form)
-
-
-
 @app.route('/wallet/', methods=['POST', 'GET'])
 def create_wallet():
     if request.method == 'POST':
@@ -69,8 +60,6 @@ def create_wallet():
       db.session.commit()
       return redirect(url_for('wallet_page'))
     return render_template('wallet.html', wallets=Wallet.query.all())  
-
-
 @app.route('/wallet/<int:wallet_id>/entry/new', methods=['POST', 'GET'])
 def create_entry(wallet_id):
     if request.method == 'POST':
@@ -85,11 +74,6 @@ def create_entry(wallet_id):
       db.session.commit()
       return redirect(url_for('wallet_page'))
     return render_template('wallet.html')  
-
-
-
-
-
 @app.route('/delete/<int:id>', methods=['POST'])
 def user_delete(id):
     form = RegisterForm
@@ -102,7 +86,6 @@ def user_delete(id):
     except:
         flash('User Deleted error!!', category='danger')
         return render_template('home.html', form = form)
-
 @app.route('/wallet/delete/<int:id>', methods=['POST'])
 @login_required
 def wallet_delete(id):
@@ -115,7 +98,6 @@ def wallet_delete(id):
         return redirect(url_for('wallet_page'))
     except:
         return render_template('wallet.html')
-
 @app.route('/entry/delete/<int:id>', methods=['POST'])
 @login_required
 def entry_delete(id):
@@ -129,9 +111,6 @@ def entry_delete(id):
         
     except:
         return render_template('wallet.html')
-
-
-
 @app.route('/logout',  methods=['POST'])
 def logout_page():
     logout_user()

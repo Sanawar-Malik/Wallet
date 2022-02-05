@@ -2,7 +2,6 @@
 {% block title %}
     Login Page
 {% endblock %}
-
 {% block content %}
 <body class="text-black">
     <div class="container px-32">
@@ -17,17 +16,12 @@
             <br>
             <!-- {{ form.password.label() }} -->
             {{ form.password(class="form-control border-2", placeholder="Password") }}
-
             <br>
-
-
             <div class="checkbox mb-3">
                <h6 class="mb-2">Do not have an account?</h6>
                <a class="bg-green-500 rounded-full font-bold text-white px-4 py-1 transition duration-300 ease-in-out hover:bg-green-600" href="{{ url_for('register_page') }}">Register</a>
             </div>
-
             {{ form.submit(class="bg-black rounded-full font-bold text-white px-4 py-2 transition duration-300 ease-in-out hover:bg-gray-800") }}
-
         </form>
     </div>
 </body>

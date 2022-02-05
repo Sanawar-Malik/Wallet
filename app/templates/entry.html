@@ -1,5 +1,4 @@
 {% for wallet in wallets %}
-
 <div class="modal fade  bg-gray-900" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -23,11 +22,8 @@
                 <option selected>Select</option>
                 {% if current_user.is_authenticated %}
                 {% for wallet in wallets %}
-
-                <option value="{{wallet.name}}">{{wallet.name}}</option>
-             
-                {% endfor %}
-                
+                <option value="{{wallet.name}}">{{wallet.name}}</option>             
+                {% endfor %}               
                 {% endif %}
               </select>
             </div>
@@ -43,14 +39,12 @@
     function form_submit() {
       document.getElementById("search_form").submit();
      }    
-    </script>
-  
+    </script>  
   <script>
     $(document).ready(function(){
     $(document).on('click','.addEvent',function(){
         $('.modal-body').text($(this).attr(''));
         $('#exampleModal').modal('show');
     });
-    });
-  
+    }); 
   </script>
